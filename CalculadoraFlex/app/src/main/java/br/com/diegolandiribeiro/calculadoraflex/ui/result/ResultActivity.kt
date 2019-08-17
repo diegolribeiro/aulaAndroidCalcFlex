@@ -12,6 +12,8 @@ class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayShowHomeEnabled(true);
 
             if (intent.extras == null) {
                 Toast.makeText(this, "Não foi possível realizar a operação",
@@ -19,6 +21,11 @@ class ResultActivity : AppCompatActivity() {
             } else {
                 calculate()
             }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun calculate(){
@@ -36,7 +43,7 @@ class ResultActivity : AppCompatActivity() {
             tvSuggestion.text = getString(R.string.gasoline)
         }
         tvEthanolAverageResult.text = (ethanolPrice / ethanolAverage).format(2)
-        tvGasAverageResult.text = (ethanolPrice / ethanolAverage).toString().format(2)
+        tvGasAverageResult.text = (gasPrice/ gasAverage).format(2)
         tvFuelRatio.text =
             getString(R.string.label_fuel_ratio,performanceOfMyCar.format(2))
     }
