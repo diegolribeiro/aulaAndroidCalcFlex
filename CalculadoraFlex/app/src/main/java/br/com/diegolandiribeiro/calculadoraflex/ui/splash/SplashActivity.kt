@@ -51,7 +51,7 @@ class SplashActivity : AppCompatActivity() {
         ivLogo.startAnimation(anim)
         //Chama a próxima tela após 3,5 segundos definido no SPLASH_DISPLAY_LENGTH
         Handler().postDelayed({
-            val nextScreen = Intent(this@SplashActivity, FormActivity::class.java)
+            val nextScreen = Intent(this@SplashActivity, LoginActivity::class.java)
             startActivity(nextScreen)
             finish()
         }, TEMPO_AGUARDO_SPLASHSCREEN)
