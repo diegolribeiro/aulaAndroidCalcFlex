@@ -4,9 +4,12 @@ import androidx.room.Room
 import br.com.diegolandiribeiro.roomwordsample.WordViewModel
 import br.com.diegolandiribeiro.roomwordsample.adapter.WordListAdapter
 import br.com.diegolandiribeiro.roomwordsample.dao.WordRoomDatabase
+import br.com.diegolandiribeiro.roomwordsample.repository.WordRepository
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-
+val repositoryModule = module{
+    single { WordRepository(get()) }
+}
 val dbModule = module {
     single {
         Room.databaseBuilder(

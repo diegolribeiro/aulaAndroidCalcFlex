@@ -2,6 +2,7 @@ package br.com.diegolandiribeiro.roomwordsample
 
 import android.app.Application
 import br.com.diegolandiribeiro.roomwordsample.di.dbModule
+import br.com.diegolandiribeiro.roomwordsample.di.repositoryModule
 import br.com.diegolandiribeiro.roomwordsample.di.uiModule
 import br.com.diegolandiribeiro.roomwordsample.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -20,7 +21,8 @@ class MyApplication : Application() {
                 listOf(
                     viewModelModule,
                     uiModule,
-                    dbModule
+                    dbModule,
+                    repositoryModule
                 )
             )
         }
